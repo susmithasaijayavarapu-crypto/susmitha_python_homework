@@ -1,0 +1,12 @@
+ function: no_params 
+positional parameters: none
+keyword parameters: none
+return: None
+ function: pos_params 
+positional parameters: ['apple', 'banana', 'grapes']
+keyword parameters: none
+return: True
+ function: key_params 
+positional parameters: none
+keyword parameters: {'name': 'fruits', 'count': 3, 'has_data': True}
+return: <function logger_decorator at 0x000001FE51F1D080>
