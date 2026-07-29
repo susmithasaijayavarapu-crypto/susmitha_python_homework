@@ -27,8 +27,8 @@ additional_employees = [
     {"Name": "Eve", "Age": 28, "City": "Miami", "Salary": 60000},
     {"Name": "Frank", "Age": 40, "City": "Seattle", "Salary": 95000}
 ]
-'''json_employees_df = pd.DataFrame(additional_employees)'''
-'''json_employees_df.to_json('additional_employees.json', orient='records', indent=4)'''
+json_employees_df = pd.DataFrame(additional_employees)
+json_employees_df.to_json('additional_employees.json', orient='records', indent=4)
 json_employees = pd.read_json('additional_employees.json')
 print(json_employees)
 
@@ -44,8 +44,8 @@ print(last_two)
 employee_shape= more_employees.shape
 print(employee_shape)
 
-employee_info= more_employees.info()
-print(employee_info)
+print(more_employees.info())
+
 
 dirty_data = pd.read_csv('dirty_data.csv')
 print(dirty_data)
@@ -53,6 +53,7 @@ print(dirty_data)
 clean_data = dirty_data.copy()
 print(clean_data)
 clean_data.drop_duplicates(inplace=True)
+clean_data.reset_index(drop=True, inplace=True)
 
 clean_data['Age']= pd.to_numeric(clean_data['Age'], errors= "coerce")
 
@@ -67,7 +68,7 @@ median_salary = clean_data['Salary'].median()
 clean_data['Salary'] = clean_data['Salary'].fillna(median_salary)
 
 clean_data['Hire Date'] = pd.to_datetime(clean_data['Hire Date'], format='mixed',errors='coerce')
-clean_data['Hire Date'] = clean_data['Hire Date'].ffill().bfill()
+
 clean_data['Name'] = clean_data['Name'].str.strip()
 clean_data['Department'] = clean_data['Department'].str.strip().str.upper()
 print(clean_data)
