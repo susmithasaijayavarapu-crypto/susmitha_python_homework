@@ -58,8 +58,9 @@ print(clean_data)
 
 import numpy as np
 
-clean_data['Salary']= pd.to_numeric(clean_data['Salary'], errors= "coerce")
+
 clean_data['Salary'] = clean_data['Salary'].replace(['unknown', 'n/a', 'N/A', 'Unknown'], np.nan)
+clean_data['Salary']= pd.to_numeric(clean_data['Salary'], errors= "coerce")
 print(clean_data)
 
 median_salary = clean_data['Salary'].median()
@@ -67,8 +68,9 @@ clean_data['Salary'] = clean_data['Salary'].fillna(median_salary)
 print(clean_data)
 
 clean_data['Hire Date'] = pd.to_datetime(clean_data['Hire Date'], format='mixed',errors='coerce')
+clean_data['Hire Date'] = clean_data['Hire Date'].fillna(pd.to_datetime('2021-01-01'))
 print(clean_data)
 
-clean_data['Name'] = clean_data['Name'].str.strip().str.upper()
-clean_data['Department'] = clean_data['Department'].str.strip().str.upper()
+clean_data['Name'] = clean_data['Name'].str.strip()
+clean_data['Department'] = clean_data['Department'].str.upper()
 print(clean_data)
