@@ -27,8 +27,9 @@ additional_employees = [
     {"Name": "Eve", "Age": 28, "City": "Miami", "Salary": 60000},
     {"Name": "Frank", "Age": 40, "City": "Seattle", "Salary": 95000}
 ]
-json_employees = pd.DataFrame(additional_employees)
-json_employees.to_json('additional_employees.json', orient='records', indent=4)
+json_employees_df = pd.DataFrame(additional_employees)
+json_employees_df.to_json('additional_employees.json', orient='records', indent=4)
+json_employees = pd.read_json('additional_employees.json')
 print(json_employees)
 
 more_employees = pd.concat([task2_employees,json_employees],ignore_index=True )
@@ -54,9 +55,9 @@ print(clean_data)
 clean_data.drop_duplicates(inplace=True)
 
 clean_data['Age']= pd.to_numeric(clean_data['Age'], errors= "coerce")
-clean_data['Salary']= pd.to_numeric(clean_data['Salary'], errors= "coerce")
-clean_data['Salary'] = clean_data['Salary'].replace(['unknown', 'n/a'], np.nan)
 
+clean_data['Salary'] = clean_data['Salary'].replace(['unknown', 'n/a'], np.nan)
+clean_data['Salary']= pd.to_numeric(clean_data['Salary'], errors= "coerce")
 print(clean_data)
 
 mean_age = clean_data['Age'].mean()
