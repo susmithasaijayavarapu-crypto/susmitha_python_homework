@@ -1,0 +1,24 @@
+Result Item Container:
+
+Tag: li
+
+Class: row cp-search-result-item
+
+Title:
+
+Tag: span inside an a tag
+
+Class: title-content 
+
+
+Author:
+
+Tag: a
+
+Class: author-link 
+
+
+Format & Year:
+
+Parent Tag: div and span
+Classes: cp-format-info,  display-info-primary,

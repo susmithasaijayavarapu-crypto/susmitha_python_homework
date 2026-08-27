@@ -1,0 +1,20 @@
+1. XPath Scope and Element Selection:
+   - Challenge: Attempting to target parent container elements (such as <p> or <li>)
+    prevented Selenium from extracting the target 'href' attribute.
+     Furthermore, absolute XPaths were brittle and prone to breaking with minor DOM layout shifts.
+   - Resolution: Refined XPath expressions to specifically target anchor tags ('/a') inside the main section
+    using relative paths (e.g., "//section[@id='sec-main']//p/a" and "//section[@id='sec-main']//li/a").
+
+
+
+2. - Challenge: Interacting with the webpage immediately after calling 'driver.get()' 
+        resulted in script failures when page elements had not fully loaded into the DOM.
+   - Resolution: Implemented explicit waits using Selenium's 'WebDriverWait' and 'expected_conditions' 
+        ('presence_of_element_located') to pause execution until target elements were rendered.
+
+
+3.  Data Formatting and Deduplication:
+   - Challenge: Extracted title text contained irregular line breaks and extra whitespace caused by nested HTML tags
+    (such as <strong>), along with potential duplicate entries.
+   - Resolution: Applied string normalization using '" ".join(title.split())' 
+        to clean up formatting and tracked seen titles in a set to guarantee a clean list of 10 unique vulnerabilities.

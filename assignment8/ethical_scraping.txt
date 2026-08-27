@@ -1,0 +1,22 @@
+1. Are there specific rules for certain user agents?
+
+Yes, but only for a very small, specific set of standard crawlers.
+User-agent: * (The Global Rule)
+
+Applies to all web crawlers (including general scrapers, AI bots, and custom Python scripts). 
+It sets the standard restrictions blocking access to dynamic backend scripts (/w/), search pages (/wiki/Special:Search), 
+and administrative utilities.
+
+Backend script directories and parameters (/w/, /api/, &action=edit, &diff=).
+
+Special administrative pages (/wiki/Special:, /wiki/Special:Search, /wiki/Special:Random).
+
+User account functions (/wiki/Special:UserLogin).
+
+
+2.  The robots.txt file is used by websites to specify rules and guidelines for web crawlers,
+ indicating which paths or directories are off-limits. It promotes ethical scraping by allowing site administrators to protect
+  sensitive server infrastructure, manage bandwidth, and prevent automated bots from causing service disruptions or scraping private content. 
+  Following these rules ensures that developers respect site boundaries, practice responsible data collection, and maintain a cooperative 
+  web ecosystem.
+
