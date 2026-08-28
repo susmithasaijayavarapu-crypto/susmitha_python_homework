@@ -1,22 +1,14 @@
-1. Are there specific rules for certain user agents?
+1. Restricted Sections for Crawling:
+Wikipedia restricts web crawlers from accessing dynamic, administrative, and sensitive internal paths. Key disallowed sections include:
 
-Yes, but only for a very small, specific set of standard crawlers.
-User-agent: * (The Global Rule)
+- MediaWiki backend scripts and query pages (e.g., /w/, /wiki/Special:, /wiki/Special:Search).
+- User administrative utility paths, search queries, and revision diffs (e.g., /wiki/Special:Log, /wiki/Special:Watchlist).
+- API endpoints and dynamically rendered non-article pages that place unnecessary rendering load on server infrastructure.
 
-Applies to all web crawlers (including general scrapers, AI bots, and custom Python scripts). 
-It sets the standard restrictions blocking access to dynamic backend scripts (/w/), search pages (/wiki/Special:Search), 
-and administrative utilities.
-
-Backend script directories and parameters (/w/, /api/, &action=edit, &diff=).
-
-Special administrative pages (/wiki/Special:, /wiki/Special:Search, /wiki/Special:Random).
-
-User account functions (/wiki/Special:UserLogin).
-
-
-2.  The robots.txt file is used by websites to specify rules and guidelines for web crawlers,
- indicating which paths or directories are off-limits. It promotes ethical scraping by allowing site administrators to protect
-  sensitive server infrastructure, manage bandwidth, and prevent automated bots from causing service disruptions or scraping private content. 
-  Following these rules ensures that developers respect site boundaries, practice responsible data collection, and maintain a cooperative 
-  web ecosystem.
+2. Specific Rules for User-Agents:
+Yes, Wikipedia specifies custom access rules for individual web crawlers based on their user-agent headers:
+- General Crawlers (User-agent: *): Standard restrictions apply to dynamic administrative paths (/w/, /wiki/Special:).
+- Specific Search Engine Bots: Bots like Googlebot, Bingbot, or specialized archival crawlers (e.g., Internet Archive's ia_archiver) 
+have custom Allow or Disallow directives permitting or limiting deep indexing of specific asset types.
+- Malicious/Aggressive Bots: Known aggressive scrapers or spambots are explicitly blocked entirely (Disallow: /) across all routes.
 
