@@ -26,6 +26,9 @@ try:
     # Step 2: Flexible XPath targeting the OWASP Top Ten version link inside sec-main
     # This targets <a> tags inside #sec-main containing 'Top Ten' or 'Top 10' in text or href
     link_xpath = "//section[@id='sec-main']//a[contains(translate(text(), 'T', 't'), 'top') and (contains(text(), '10') or contains(translate(text(), 'T', 't'), 'ten'))]"
+
+
+
     
     try:
         # Wait until present in DOM

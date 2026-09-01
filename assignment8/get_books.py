@@ -50,7 +50,7 @@ for index, item in enumerate(search_items, start=1):
         # --- Format & Year ---
         # Find the div/container storing format and publication info, then retrieve the text
         format_div = item.find_element(By.CSS_SELECTOR, "div.cp-format-info, [data-test-id='format-info']")
-        format_span = format_div.find_element(By.CSS_SELECTOR, "span")
+        format_span = format_div.find_element(By.CSS_SELECTOR, "span.display-info-primary")
         format_year_text = format_span.text.strip()
         
     except Exception:
