@@ -27,9 +27,11 @@ additional_employees = [
     {"Name": "Eve", "Age": 28, "City": "Miami", "Salary": 60000},
     {"Name": "Frank", "Age": 40, "City": "Seattle", "Salary": 95000}
 ]
+
 json_employees_df = pd.DataFrame(additional_employees)
 json_employees_df.to_json('additional_employees.json', orient='records', indent=4)
 json_employees = pd.read_json('additional_employees.json')
+print("====Task2===")
 print(json_employees)
 
 more_employees = pd.concat([task2_employees,json_employees],ignore_index=True )

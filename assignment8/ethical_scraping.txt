@@ -1,0 +1,14 @@
+1. Restricted Sections for Crawling:
+Wikipedia restricts web crawlers from accessing dynamic, administrative, and sensitive internal paths. Key disallowed sections include:
+
+- MediaWiki backend scripts and query pages (e.g., /w/, /wiki/Special:, /wiki/Special:Search).
+- User administrative utility paths, search queries, and revision diffs (e.g., /wiki/Special:Log, /wiki/Special:Watchlist).
+- API endpoints and dynamically rendered non-article pages that place unnecessary rendering load on server infrastructure.
+
+2. Specific Rules for User-Agents:
+Yes, Wikipedia specifies custom access rules for individual web crawlers based on their user-agent headers:
+- General Crawlers (User-agent: *): Standard restrictions apply to dynamic administrative paths (/w/, /wiki/Special:).
+- Specific Search Engine Bots: Bots like Googlebot, Bingbot, or specialized archival crawlers (e.g., Internet Archive's ia_archiver) 
+have custom Allow or Disallow directives permitting or limiting deep indexing of specific asset types.
+- Malicious/Aggressive Bots: Known aggressive scrapers or spambots are explicitly blocked entirely (Disallow: /) across all routes.
+
