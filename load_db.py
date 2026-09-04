@@ -2,7 +2,7 @@ import pandas as pd
 import sqlalchemy as sa
 import sqlite3
 import os
-db_path = "../db/lesson.db"
+db_path = "./db/lesson.db"
 
 if os.path.exists(db_path):
     answer = input("The database exists.  Do you want to recreate it (y/n)?")
