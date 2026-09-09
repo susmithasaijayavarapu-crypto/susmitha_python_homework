@@ -1,4 +1,3 @@
-import readline  # Provides command line editing and history
 import sqlite3   # For SQL command execution
 import sys
 conn = sqlite3.connect("./db/lesson.db",isolation_level='IMMEDIATE')
@@ -66,3 +65,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
