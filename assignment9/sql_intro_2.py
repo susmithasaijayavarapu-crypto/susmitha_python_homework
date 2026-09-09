@@ -3,7 +3,8 @@ import sqlite3
 import pandas as pd
 
 # Path to database relative to assignment9 directory
-db_path = "./db/lesson.db"
+db_path = "../db/lesson.db"
+print(os.getcwd())
 
 # 1. Connect to SQLite database and query data via JOIN
 conn = sqlite3.connect(db_path)

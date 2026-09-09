@@ -8,14 +8,14 @@ os.makedirs(os.path.dirname(db_path), exist_ok=True)
 
 CREATE_PUBLISHERS = """
 CREATE TABLE IF NOT EXISTS publishers (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY,
     name TEXT NOT NULL UNIQUE
 );
 """
 
 CREATE_MAGAZINES = """
 CREATE TABLE IF NOT EXISTS magazines (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY,
     name TEXT NOT NULL UNIQUE,
     publisher_id INTEGER NOT NULL,
     FOREIGN KEY (publisher_id) REFERENCES publishers(id)
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS magazines (
 
 CREATE_SUBSCRIBERS = """
 CREATE TABLE IF NOT EXISTS subscribers (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
     address TEXT NOT NULL
 );
